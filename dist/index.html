@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="../images/annotation-icon.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="../src/styles/css/style.css" />
+    <script src="../src/scripts/index.js" defer></script>
+    <title>WebAnnotation</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="page-title">
+        <h1>WebAnnotation</h1>
+        <img src="../images/annotation-icon.png" alt="annotation-icon" />
+      </div>
+      <div class="main-content">
+        <aside class="lateral-menu">
+          <button id="menu-btn-new-annotation">
+            New annotation <i class="fa fa-plus" aria-hidden="true"></i>
+          </button>
+        </aside>
+        <section class="annotations-area"></section>
+        <div id="add-or-edit-annotation-div" class="annotation-desactived">
+          <div class="close-menu" id="close-annotation-div-btn">
+            <p>New annotation</p>
+            <button <i class="fa fa-times" aria-hidden="true"></i></button>
+          </div>
+          <div class="title-area-input">
+            <input type="text" name="title-annotation" id="title-annotation" placeholder="The title goes here">
+          </div>
+          <div class="main-text-area-input">
+            <textarea name="main-annotation-area" id="main-annotation-area" placeholder="Let your imagination flow"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://use.fontawesome.com/6a338a70ab.js"></script>
+  </body>
+</html>
