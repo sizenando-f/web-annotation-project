@@ -1,0 +1,17 @@
+{
+  "name": "webannotation",
+  "version": "1.0.0",
+  "description": "Create your own private annotations",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "annotations",
+    "text",
+    "writer",
+    "private"
+  ],
+  "author": "Sizenando França",
+  "license": "ISC"
+}

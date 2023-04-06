@@ -10,37 +10,51 @@
       type="image/x-icon"
     />
     <link rel="stylesheet" href="../src/styles/css/style.css" />
-    <script src="../src/scripts/index.js" defer></script>
+    <script src="../src/scripts/index.js" defer type="module"></script>
     <title>WebAnnotation</title>
   </head>
   <body>
     <div class="container">
+      <!-- Title part with logo -->
       <div class="page-title">
         <h1>WebAnnotation</h1>
         <img src="../images/annotation-icon.png" alt="annotation-icon" />
       </div>
       <div class="main-content">
+        <!-- Lateral menu with create annotation button -->
         <aside class="lateral-menu">
           <button id="menu-btn-new-annotation">
             New annotation <i class="fa fa-plus" aria-hidden="true"></i>
           </button>
         </aside>
+        <!-- Area with saved annotations -->
         <section class="annotations-area"></section>
+        <!-- Write panel -->
         <div id="add-or-edit-annotation-div" class="annotation-desactived">
-          <div class="close-menu" id="close-annotation-div-btn">
+          <!-- Title and close button -->
+          <header class="close-menu" id="close-annotation-div-btn">
             <p>New annotation</p>
             <button <i class="fa fa-times" aria-hidden="true"></i></button>
-          </div>
+          </header>
+          <!-- Main title input area -->
           <div class="title-area-input">
             <input type="text" name="title-annotation" id="title-annotation" placeholder="The title goes here">
           </div>
+          <!-- Main text input area -->
           <div class="main-text-area-input">
             <textarea name="main-annotation-area" id="main-annotation-area" placeholder="Let your imagination flow"></textarea>
           </div>
+          <!-- Save area -->
+          <footer class="save-area">
+            <button id="btn-annotation-saver"> <h1><i class="fa fa-floppy-o" aria-hidden="true" id="save-icon"></i></h1>
+            </button>
+          </footer>
         </div>
       </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+<script>dayjs().format()</script>
     <script src="https://use.fontawesome.com/6a338a70ab.js"></script>
   </body>
 </html>
