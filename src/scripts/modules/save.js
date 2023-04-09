@@ -1,8 +1,9 @@
+import { show } from "./showAnnotations.js";
+
 const annotationTitle = document.getElementById("title-annotation");
 const mainAnnotation = document.getElementById("main-annotation-area");
 
-// Is here where all annotations will be saved
-const annotations = [];
+let idCounter = localStorage.getItem("idCount") ?? 0;
 
 const saveBtn = () => {
   const saveIcon = document.getElementById("save-icon");
@@ -24,14 +25,15 @@ const saveBtn = () => {
   }
   saveIcon.className = "fa fa-check";
 
-  // Createa an object and push in annotations
-  const newAnnotation = {
-    title,
-    text,
-    date,
-  };
-  annotations.push(newAnnotation);
-  console.log(annotations);
+  // To know how many annotations exists
+  idCounter++;
+  localStorage.setItem("idCount", idCounter);
+
+  localStorage.setItem(`title${idCounter}`, title);
+  localStorage.setItem(`text${idCounter}`, text);
+  localStorage.setItem(`date${idCounter}`, date);
+
+  show();
 
   // After 2 seconds, the icon returns to normal
   setTimeout(() => {
@@ -39,4 +41,4 @@ const saveBtn = () => {
   }, 2000);
 };
 
-export { saveBtn, annotations };
+export { saveBtn };
