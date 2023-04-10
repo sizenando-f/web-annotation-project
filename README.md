@@ -2,7 +2,14 @@
 
 Just make your own private annotations!
 <br>
-For now you can just start a new annotation and write some things
+
+## Changelog 10-04-2023
+1. You can open your saved annotations by clicking on them
+2. You can delete saved annotations that already exists when entering at the page
+- Future maintenances:
+   - Erase permanently the annotations from local storage
+   - Fix the annotations amount in annotations area
+   - Turns deleteable the new annotations
 
 ## Changelog 08-04-2023
 1. Now your annotations will be saved and they will appear at the annotation area
