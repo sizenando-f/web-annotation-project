@@ -4,6 +4,9 @@ import { show } from "./modules/showAnnotations.js";
 const annotationDiv = document.getElementById("add-or-edit-annotation-div");
 const annotationTitle = document.getElementById("title-annotation");
 const mainAnnotation = document.getElementById("main-annotation-area");
+const buttonSave = document.getElementById("btn-annotation-saver");
+
+// const editBtn = document.getElementById("btn-edit-annotation");
 
 // Show the existing annotations
 show();
@@ -18,6 +21,9 @@ document
 // The panel is hidden and the title and the text wrote is erased
 document.getElementById("close-button-itself").addEventListener("click", () => {
   annotationDiv.classList = "annotation-desactived";
+  annotationTitle.disabled = false;
+  mainAnnotation.disabled = false;
+  buttonSave.disabled = false;
   annotationTitle.value = "";
   mainAnnotation.value = "";
 });
