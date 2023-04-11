@@ -5,8 +5,8 @@ const annotationDiv = document.getElementById("add-or-edit-annotation-div");
 const annotationTitle = document.getElementById("title-annotation");
 const mainAnnotation = document.getElementById("main-annotation-area");
 const buttonSave = document.getElementById("btn-annotation-saver");
-
-// const editBtn = document.getElementById("btn-edit-annotation");
+const deleteBtn = document.getElementById("btn-delete-annotation");
+const editBtn = document.getElementById("btn-edit-annotation");
 
 // Show the existing annotations
 show();
@@ -16,6 +16,8 @@ document
   .getElementById("menu-btn-new-annotation")
   .addEventListener("click", () => {
     annotationDiv.classList = "annotation-actived";
+    deleteBtn.disabled = true;
+    editBtn.disabled = true;
   });
 
 // The panel is hidden and the title and the text wrote is erased

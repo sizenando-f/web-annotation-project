@@ -14,6 +14,20 @@ export function autoElementCreator(type, className, innerText = "", id = "") {
   return element;
 }
 
+// Check if there is more annotations then storage quantity, when this happen, usually is when the user erase all annotations but even like that the annotation persists, so this function erase all data fixing this bug
+function checkError() {
+  const annQuant = document.querySelectorAll(".saved-annotation").length;
+  const trueQuant = localStorage.getItem("annotationsQuant");
+  if (annQuant > trueQuant) {
+    location.reload();
+    localStorage.clear();
+    console.error(
+      "Error detected, it seems there's an unwanted annotation is in your space, clearing data..."
+    );
+    return;
+  }
+}
+
 // Show the annotations at area of annotations
 function show() {
   const annotationList = [];
@@ -22,12 +36,14 @@ function show() {
 
   // For each title, text and dates in common, will put in an object and pushed in an array
   for (let i = 1; i <= registerNumber; i++) {
-    annotationBlock = {
-      title: localStorage.getItem(`title${i}`),
-      text: localStorage.getItem(`text${i}`),
-      date: localStorage.getItem(`date${i}`),
-    };
-    annotationList.push(annotationBlock);
+    if (localStorage.getItem(`title${i}`) !== null) {
+      annotationBlock = {
+        title: localStorage.getItem(`title${i}`),
+        text: localStorage.getItem(`text${i}`),
+        date: localStorage.getItem(`date${i}`),
+      };
+      annotationList.push(annotationBlock);
+    }
   }
 
   // If already exists annotations, just put one more
@@ -66,6 +82,7 @@ function show() {
 
   // This will make the program know that now exists annotations
   control = true;
+  checkError();
 }
 
 export { show };

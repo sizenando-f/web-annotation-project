@@ -2,12 +2,11 @@ import { show } from "./showAnnotations.js";
 
 const annotationTitle = document.getElementById("title-annotation");
 const mainAnnotation = document.getElementById("main-annotation-area");
+const btnWriteSaver = document.getElementById("btn-annotation-saver");
 
 let idCounter = localStorage.getItem("idCount") ?? 0;
 
 const saveBtn = () => {
-  const saveIcon = document.getElementById("save-icon");
-
   // Get the title and text values
   let title = annotationTitle.value;
   let text = mainAnnotation.value;
@@ -23,10 +22,15 @@ const saveBtn = () => {
     }, 2000);
     return;
   }
-  saveIcon.className = "fa fa-check";
 
+  btnWriteSaver.innerText = "Saved!";
   // To know how many annotations exists
   idCounter++;
+
+  // Control variable to storage how many annotations there is
+  let annotationsQuant = localStorage.getItem("annotationsQuant") ?? 0;
+  annotationsQuant++;
+  localStorage.setItem("annotationsQuant", annotationsQuant);
   localStorage.setItem("idCount", idCounter);
 
   localStorage.setItem(`title${idCounter}`, title);
@@ -37,7 +41,7 @@ const saveBtn = () => {
 
   // After 2 seconds, the icon returns to normal
   setTimeout(() => {
-    saveIcon.className = "fa fa-floppy-o";
+    btnWriteSaver.innerText = "Save";
   }, 2000);
 };
 

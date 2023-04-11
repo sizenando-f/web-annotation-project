@@ -37,12 +37,24 @@ function writeEditor(ev) {
         // Gets the id of the div that called the event
         const id = ev.currentTarget.parentNode.parentNode.dataset.actualEdit;
 
-        // If the id match with any div id existing in annotation area, that div is erased
-        allAnnotations.forEach((el) => {
-          if (id === el.id) {
-            el.remove();
-          }
-        });
+        if (confirm("Are you sure you want to delete this annotation?")) {
+          // If the id match with any div id existing in annotation area, that div is erased
+          allAnnotations.forEach((el) => {
+            if (id === el.id) {
+              let annotationsQuant = localStorage.getItem("annotationsQuant");
+              annotationsQuant--;
+              localStorage.setItem("annotationsQuant", annotationsQuant);
+              localStorage.removeItem(`title${id}`);
+              localStorage.removeItem(`text${id}`);
+              localStorage.removeItem(`date${id}`);
+
+              el.remove();
+
+              // Close writer when deleted
+              annotationDiv.classList = "annotation-desactived";
+            }
+          });
+        }
       });
   }
 

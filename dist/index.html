@@ -24,32 +24,42 @@
         <!-- Lateral menu with create annotation button -->
         <aside class="lateral-menu">
           <button id="menu-btn-new-annotation">
-            New annotation <i class="fa fa-plus" aria-hidden="true"></i>
+            New annotation
+            <p>+</p>
           </button>
         </aside>
         <!-- Area with saved annotations -->
-        <section class="annotations-area" id="all-annotations">
-        </section>
+        <section class="annotations-area" id="all-annotations"></section>
         <!-- Write panel -->
         <div id="add-or-edit-annotation-div" class="annotation-desactived">
           <!-- Title and close button -->
           <header class="close-menu" id="close-annotation-div-btn">
             <p>New annotation</p>
-            <button <i class="fa fa-times" aria-hidden="true" id="close-button-itself"></i></button>
+            <button id="close-button-itself">X</button>
           </header>
           <!-- Main title input area -->
           <div class="title-area-input">
-            <input type="text" name="title-annotation" id="title-annotation" placeholder="The title goes here">
+            <input
+              type="text"
+              name="title-annotation"
+              id="title-annotation"
+              placeholder="The title goes here"
+            />
           </div>
           <!-- Main text input area -->
           <div class="main-text-area-input">
-            <textarea name="main-annotation-area" id="main-annotation-area" placeholder="Let your imagination flow"></textarea>
+            <textarea
+              name="main-annotation-area"
+              id="main-annotation-area"
+              placeholder="Let your imagination flow"
+            ></textarea>
           </div>
           <!-- Save area -->
           <footer class="save-area" id="writer-footer-area">
-            <button id="btn-annotation-saver"> <h1><i class="fa fa-floppy-o" aria-hidden="true" id="save-icon"></i></h1>
+            <button id="btn-annotation-saver">Save</button>
+            <button id="btn-delete-annotation" class="editor-btn">
+              Delete
             </button>
-            <button id="btn-delete-annotation" class="editor-btn">Delete</button>
             <button id="btn-edit-annotation" class="editor-btn">Edit</button>
           </footer>
         </div>
@@ -57,7 +67,8 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
-<script>dayjs().format()</script>
-    <script src="https://use.fontawesome.com/6a338a70ab.js"></script>
+    <script>
+      dayjs().format();
+    </script>
   </body>
 </html>

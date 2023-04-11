@@ -177,25 +177,83 @@ body {
   padding-right: 2rem;
   display: flex;
   justify-content: flex-end;
+  gap: 0.2rem;
 }
 .container .main-content .annotation-actived .save-area #btn-annotation-saver {
-  color: rgb(0, 62, 0);
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
   cursor: pointer;
   border-radius: 1rem;
-  background-color: rgb(0, 186, 0);
+  background-color: rgb(24, 137, 24);
   display: flex;
   justify-content: space-around;
   gap: 10px;
   align-items: center;
-  padding: 0.1rem 2rem 0.1rem 2rem;
+  padding: 0.5rem 2rem 0.5rem 2rem;
   width: 5rem;
+  border: transparent;
   transition: 0.2s;
 }
 .container .main-content .annotation-actived .save-area #btn-annotation-saver:hover {
-  background-color: rgba(0, 186, 0, 0.716);
+  box-shadow: 0px 0px 10px green;
 }
 .container .main-content .annotation-actived .save-area #btn-annotation-saver:active {
   rotate: 0.1deg;
+}
+.container .main-content .annotation-actived .save-area #btn-delete-annotation {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 1rem;
+  background-color: rgb(185, 24, 24);
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+  align-items: center;
+  padding: 0.5rem 2rem 0.5rem 2rem;
+  width: 5rem;
+  transition: 0.3s;
+  border: transparent;
+}
+.container .main-content .annotation-actived .save-area #btn-delete-annotation:hover {
+  box-shadow: 0px 0px 10px red;
+}
+.container .main-content .annotation-actived .save-area #btn-delete-annotation:active {
+  rotate: 0.1deg;
+}
+.container .main-content .annotation-actived .save-area #btn-delete-annotation:disabled {
+  cursor: default;
+  background-color: gray;
+  color: whitesmoke;
+}
+.container .main-content .annotation-actived .save-area #btn-edit-annotation {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 1rem;
+  background-color: rgba(34, 34, 182, 0.94);
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+  align-items: center;
+  padding: 0.5rem 2rem 0.5rem 2rem;
+  width: 5rem;
+  border: transparent;
+  transition: 0.2s;
+}
+.container .main-content .annotation-actived .save-area #btn-edit-annotation:hover {
+  box-shadow: 0px 0px 10px blue;
+}
+.container .main-content .annotation-actived .save-area #btn-edit-annotation:active {
+  rotate: 0.1deg;
+}
+.container .main-content .annotation-actived .save-area #btn-edit-annotation:disabled {
+  cursor: default;
+  background-color: gray;
+  color: whitesmoke;
 }
 .container .main-content .annotation-desactived {
   display: none;
