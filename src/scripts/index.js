@@ -15,6 +15,12 @@ show();
 document
   .getElementById("menu-btn-new-annotation")
   .addEventListener("click", () => {
+    // Clean previous values inserted
+    mainAnnotation.value = "";
+    mainAnnotation.disabled = false;
+    annotationTitle.value = "";
+    annotationTitle.disabled = false;
+    annotationDiv.dataset.actualEdit = "";
     annotationDiv.classList = "annotation-actived";
     deleteBtn.disabled = true;
     editBtn.disabled = true;
@@ -23,6 +29,8 @@ document
 // The panel is hidden and the title and the text wrote is erased
 document.getElementById("close-button-itself").addEventListener("click", () => {
   annotationDiv.classList = "annotation-desactived";
+  // Reset control data
+  annotationDiv.dataset.actualEdit = "";
   annotationTitle.disabled = false;
   mainAnnotation.disabled = false;
   buttonSave.disabled = false;

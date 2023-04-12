@@ -21,19 +21,18 @@ function writeEditor(ev) {
   // Makes disabled while is not in edit mode
   title.disabled = true;
   text.disabled = true;
-  buttonSave.disabled = true;
+  buttonSave.disabled = false;
 
   // Gets value that match with div id
   title.value = localStorage.getItem(`title${div.id}`);
   text.value = localStorage.getItem(`text${div.id}`);
-
-  const allAnnotations = document.querySelectorAll(".saved-annotation");
 
   // If the buttons dont have any events yet
   if (control === false) {
     document
       .getElementById("btn-delete-annotation")
       .addEventListener("click", (ev) => {
+        const allAnnotations = document.querySelectorAll(".saved-annotation");
         // Gets the id of the div that called the event
         const id = ev.currentTarget.parentNode.parentNode.dataset.actualEdit;
 
@@ -47,7 +46,7 @@ function writeEditor(ev) {
               localStorage.removeItem(`title${id}`);
               localStorage.removeItem(`text${id}`);
               localStorage.removeItem(`date${id}`);
-
+              localStorage.removeItem(`id${id}`);
               el.remove();
 
               // Close writer when deleted

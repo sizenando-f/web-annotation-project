@@ -14,20 +14,6 @@ export function autoElementCreator(type, className, innerText = "", id = "") {
   return element;
 }
 
-// Check if there is more annotations then storage quantity, when this happen, usually is when the user erase all annotations but even like that the annotation persists, so this function erase all data fixing this bug
-function checkError() {
-  const annQuant = document.querySelectorAll(".saved-annotation").length;
-  const trueQuant = localStorage.getItem("annotationsQuant");
-  if (annQuant > trueQuant) {
-    location.reload();
-    localStorage.clear();
-    console.error(
-      "Error detected, it seems there's an unwanted annotation is in your space, clearing data..."
-    );
-    return;
-  }
-}
-
 // Show the annotations at area of annotations
 function show() {
   const annotationList = [];
@@ -41,13 +27,16 @@ function show() {
         title: localStorage.getItem(`title${i}`),
         text: localStorage.getItem(`text${i}`),
         date: localStorage.getItem(`date${i}`),
+        id: localStorage.getItem(`id${i}`),
       };
       annotationList.push(annotationBlock);
     }
   }
 
-  // If already exists annotations, just put one more
-  if (control) {
+  const writerPanel = document.getElementById("add-or-edit-annotation-div");
+
+  // If already exists annotations and its not actually editing one, just put one more
+  if (control && writerPanel.dataset.actualEdit === "") {
     const div = autoElementCreator(
       "div",
       "saved-annotation",
@@ -66,9 +55,30 @@ function show() {
     return;
   }
 
+  // If already exists annotations and its actually editing one, just replace those infos
+  if (control && writerPanel.dataset.actualEdit !== "") {
+    let id = writerPanel.dataset.actualEdit;
+    const allAnnotations = document.querySelectorAll(".saved-annotation");
+    allAnnotations.forEach((el) => {
+      if (el.id === id) {
+        console.log("Right");
+        el.childNodes[0].childNodes[0].innerText = localStorage.getItem(
+          `title${parseInt(id)}`
+        );
+        el.childNodes[0].childNodes[1].innerText = localStorage.getItem(
+          `date${parseInt(id)}`
+        );
+        el.childNodes[1].innerText = localStorage.getItem(
+          `text${parseInt(id)}`
+        );
+      }
+    });
+    return;
+  }
+
   // If not exists any annotations, put all that are in local storage
-  annotationList.forEach((element, index) => {
-    const div = autoElementCreator("div", "saved-annotation", "", index + 1);
+  annotationList.forEach((element) => {
+    const div = autoElementCreator("div", "saved-annotation", "", element.id);
     const span = autoElementCreator("span", "saved-title-area");
     const em = autoElementCreator("em", "", element.date);
     const h2 = autoElementCreator("h2", "", element.title);
@@ -82,7 +92,6 @@ function show() {
 
   // This will make the program know that now exists annotations
   control = true;
-  checkError();
 }
 
 export { show };
