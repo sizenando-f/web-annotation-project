@@ -1,3 +1,5 @@
+import { saveBtn } from "./save.js";
+
 const annotationDiv = document.getElementById("add-or-edit-annotation-div");
 const title = document.getElementById("title-annotation");
 const text = document.getElementById("main-annotation-area");
@@ -21,7 +23,7 @@ function writeEditor(ev) {
   // Makes disabled while is not in edit mode
   title.disabled = true;
   text.disabled = true;
-  buttonSave.disabled = false;
+  buttonSave.disabled = true;
 
   // Gets value that match with div id
   title.value = localStorage.getItem(`title${div.id}`);

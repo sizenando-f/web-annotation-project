@@ -55,11 +55,17 @@ const saveBtn = () => {
     return;
   }
 
+  btnWriteSaver.innerText = "Saved!";
+
   // If the code gets here, thats mean that is an existing annotation that will be saved, so he will just replace those info on local storage
   let id = parseInt(writerPanel.dataset.actualEdit);
   localStorage.setItem(`title${id}`, title);
   localStorage.setItem(`text${id}`, text);
   localStorage.setItem(`date${id}`, date);
+
+  setTimeout(() => {
+    btnWriteSaver.innerText = "Save";
+  }, 2000);
 
   show();
 };

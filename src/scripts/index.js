@@ -24,6 +24,7 @@ document
     annotationDiv.classList = "annotation-actived";
     deleteBtn.disabled = true;
     editBtn.disabled = true;
+    buttonSave.disabled = false;
   });
 
 // The panel is hidden and the title and the text wrote is erased
@@ -42,3 +43,15 @@ document.getElementById("close-button-itself").addEventListener("click", () => {
 document
   .getElementById("btn-annotation-saver")
   .addEventListener("click", saveBtn);
+
+editBtn.addEventListener("click", () => {
+  mainAnnotation.disabled = false;
+  annotationTitle.disabled = false;
+  buttonSave.disabled = false;
+  annotationTitle.style.backgroundColor = "rgba(0, 128, 0, 0.377)";
+  mainAnnotation.style.backgroundColor = "rgba(0, 128, 0, 0.377)";
+  setTimeout(() => {
+    annotationTitle.style.backgroundColor = "transparent";
+    mainAnnotation.style.backgroundColor = "transparent";
+  }, 500);
+});
