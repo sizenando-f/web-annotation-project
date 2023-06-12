@@ -87,14 +87,14 @@ body {
   padding: 10px;
   background-color: #2a2929;
   border-radius: 1rem;
-  min-height: 77vh;
+  height: 77vh;
 }
 .container .main-content .annotations-area .saved-annotation {
   padding: 1rem;
   border-radius: 1rem;
   cursor: pointer;
   background-color: #f0f0f0;
-  width: 19.5rem;
+  width: 22.47rem;
   height: 40vh;
   overflow-y: hidden;
   transition: 0.2s ease-in;
